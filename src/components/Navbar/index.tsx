@@ -8,10 +8,6 @@ import { BsFillChatDotsFill, BsGrid, BsPerson, BsBell, BsPower } from 'react-ico
 import { AiOutlineCalendar } from 'react-icons/ai';
 import { FiSettings } from 'react-icons/fi';
 
-interface NavbarProps {
-  children: ReactNode;
-}
-
 function Navbar() {
   return (
     <Container>
