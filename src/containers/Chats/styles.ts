@@ -1,4 +1,15 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const appearFromLeft = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+`;
 
 export const Container = styled.div`
   display: flex;
@@ -8,6 +19,7 @@ export const Content = styled.div`
   max-width: 780px;
   width: 100%;
   padding: 56px;
+  animation: ${appearFromLeft} 1s;
 `;
 
 export const Header = styled.header`
