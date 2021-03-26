@@ -10,10 +10,11 @@ export const Container = styled.aside`
   width: 100%;
   height: 100vh;
   background: ${({ theme }) => theme.colors.white};
-  box-shadow: 14.0351px 0px 25px rgba(86, 128, 248, 0.03), 35.0877px 0px 70px rgba(86, 128, 248, 0.05), 23.8596px 5.61404px 50px rgba(0, 0, 0, 0.02);
+  box-shadow: 14.0351px 0px 25px rgba(86, 128, 248, 0.03),
+    35.0877px 0px 70px rgba(86, 128, 248, 0.05),
+    23.8596px 5.61404px 50px rgba(0, 0, 0, 0.02);
 
-  padding: 32px;
-
+  padding: 32px 0;
 `;
 
 export const User = styled.div`
@@ -27,6 +28,9 @@ export const User = styled.div`
     text-align: center;
     font-size: ${({ theme }) => theme.font.sizes.large};
     color: ${({ theme }) => theme.colors.black};
+    display: flex;
+    align-items: center;
+    cursor: pointer;
   }
 `;
 
@@ -46,8 +50,7 @@ export const Item = styled.li`
   display: flex;
   flex-direction: row;
   align-items: center;
-
-  padding: 8px;
+  padding: 8px 40px;
 
   margin-bottom: 30px;
 
@@ -57,4 +60,9 @@ export const Item = styled.li`
     height: 24px;
   }
 
+  &:hover {
+    border-left: 4px solid;
+    border-left-color: ${({ theme }) => theme.colors.primary};
+    border-radius: 3px;
+  }
 `;

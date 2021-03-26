@@ -21,11 +21,22 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   a {
+    color: ${({ theme }) => theme.colors.lightGray};
     text-decoration: none;
     transition: opacity 300ms ease-in-out;
 
     &:hover {
       opacity: .6;
     }
+  }
+
+  button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+
+  h1,h2,h3,h4,h5,h6, strong, p {
+    color: ${({ theme }) => theme.colors.black};
   }
 `;

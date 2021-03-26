@@ -1,7 +1,5 @@
-import Chats from "../containers/Chats";
+import Homepage from '../containers/Homepage';
 
 export default function Home() {
-  return (
-    <Chats />
-  )
+  return <Homepage />;
 }
