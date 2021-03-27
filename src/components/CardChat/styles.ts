@@ -20,17 +20,17 @@ export const Container = styled.div`
 export const UserInfo = styled.div`
   display: flex;
   align-items: center;
-  > div {
+
+  img {
     width: 54px;
     height: 54px;
   }
 
-  div + div {
+  div {
     width: 100%;
-    margin-left: 20px;
+    margin-left: 10px;
     display: flex;
-    justify-content: space-between;
-
+    flex-direction: column;
     div {
       h1 {
         font-size: ${({ theme }) => theme.font.sizes.large};
@@ -43,16 +43,16 @@ export const UserInfo = styled.div`
         margin-top: 5px;
       }
     }
+  }
 
-    h3 {
-      font-size: ${({ theme }) => theme.font.sizes.normal};
-      color: ${({ theme }) => theme.colors.lightGray};
-      width: 180px;
-    }
+  h3 {
+    font-size: ${({ theme }) => theme.font.sizes.normal};
+    color: ${({ theme }) => theme.colors.lightGray};
+    width: 180px;
   }
 
   @media (max-width: 520px) {
-    div + div {
+    div {
       width: auto;
 
       div {
@@ -76,5 +76,5 @@ export const Message = styled.p`
   font-weight: 500;
   color: ${({ theme }) => theme.colors.lightGray};
   max-width: 920px;
-  margin: 16px 0;
+  margin: 20px 0;
 `;
