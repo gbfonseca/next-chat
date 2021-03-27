@@ -5,6 +5,7 @@ export const Container = styled.aside`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  position: fixed;
 
   max-width: 290px;
   width: 100%;
@@ -15,6 +16,10 @@ export const Container = styled.aside`
     23.8596px 5.61404px 50px rgba(0, 0, 0, 0.02);
 
   padding: 32px 0;
+
+  @media (max-width: 768.9px) {
+    display: none;
+  }
 `;
 
 export const User = styled.div`
@@ -36,6 +41,9 @@ export const User = styled.div`
 
 export const Menu = styled.ul`
   width: 100%;
+  @media (max-width: 1280.9px) {
+    margin-top: 30px;
+  }
 `;
 export const Item = styled.li`
   list-style: none;
@@ -64,5 +72,9 @@ export const Item = styled.li`
     border-left: 4px solid;
     border-left-color: ${({ theme }) => theme.colors.primary};
     border-radius: 3px;
+  }
+
+  @media (max-width: 1280.9px) {
+    padding: 0px 40px;
   }
 `;
