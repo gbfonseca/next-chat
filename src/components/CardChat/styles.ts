@@ -21,12 +21,12 @@ export const UserInfo = styled.div`
   display: flex;
   align-items: center;
 
-  img {
-    width: 54px;
-    height: 54px;
+  > div {
+    width: 54px !important;
+    height: 54px !important;
   }
 
-  div {
+  div + div {
     width: 100%;
     margin-left: 10px;
     display: flex;

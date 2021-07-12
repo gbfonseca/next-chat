@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { useState } from 'react';
 import {
   AiOutlineFile,
@@ -31,7 +32,13 @@ function Chats() {
       <Chat>
         <HeaderChat>
           <div>
-            <img src={MaskGroup} alt="Profile Image" />
+            <Image
+              src={MaskGroup}
+              alt="User"
+              width={54}
+              height={54}
+              layout="fixed"
+            />
             <div>
               <h1>Nika Jerrado</h1>
               <h6>Last online 5 hours ago</h6>

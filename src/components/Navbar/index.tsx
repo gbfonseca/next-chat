@@ -24,7 +24,13 @@ function Navbar() {
   return (
     <Container>
       <User>
-        <Image src={MaskGroup} alt="User" width={86} height={86} />
+        <Image
+          src={MaskGroup}
+          alt="User"
+          width={86}
+          height={86}
+          layout="intrinsic"
+        />
         <h2>
           Neymar Júnior <BiChevronDown size={24} />
         </h2>

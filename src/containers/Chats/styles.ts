@@ -26,7 +26,7 @@ const appearFromBottom = keyframes`
   }
 `;
 
-export const Container = styled.div`
+export const Container = styled.main`
   display: flex;
 `;
 

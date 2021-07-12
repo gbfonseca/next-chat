@@ -1,5 +1,5 @@
-import Homepage from '../containers/Homepage';
+import SignIn from '../containers/SignIn';
 
 export default function Home() {
-  return <Homepage />;
+  return <SignIn />;
 }

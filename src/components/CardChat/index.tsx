@@ -1,6 +1,6 @@
 import { MaskGroup } from '../../assets/images';
 import { Container, Message, UserInfo } from './styles';
-
+import Image from 'next/image';
 interface CardChatProps {
   chat: any;
 }
@@ -9,7 +9,13 @@ function CardChat({ chat }: CardChatProps) {
   return (
     <Container>
       <UserInfo>
-        <img src={MaskGroup} alt={chat.name} />
+        <Image
+          src={MaskGroup}
+          width={54}
+          height={54}
+          layout="fixed"
+          alt={chat.name}
+        />
         <div>
           <div>
             <h1>{chat.name}</h1>
