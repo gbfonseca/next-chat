@@ -36,10 +36,10 @@ function Navbar() {
         </h2>
       </User>
       <Menu>
-        <Link href="/">
+        <Link href="/home">
           <a>
             <Item>
-              <BsGrid color={route === '/' ? '#2A8BF2' : '#707C97'} />
+              <BsGrid color={route === '/home' ? '#2A8BF2' : '#707C97'} />
               Home
             </Item>
           </a>
