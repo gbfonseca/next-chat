@@ -2,7 +2,11 @@ import { MaskGroup } from '../../assets/images';
 import { Container, Message, UserInfo } from './styles';
 import Image from 'next/image';
 interface CardChatProps {
-  chat: any;
+  chat: {
+    name: string;
+    createdAt: string;
+    message: string;
+  };
 }
 
 function CardChat({ chat }: CardChatProps) {
