@@ -1,5 +1,5 @@
 import { MaskGroup } from '../../assets/images';
-import { Container, Message, UserInfo } from './styles';
+import * as S from './styles';
 import Image from 'next/image';
 interface CardChatProps {
   chat: {
@@ -11,8 +11,8 @@ interface CardChatProps {
 
 function CardChat({ chat }: CardChatProps) {
   return (
-    <Container>
-      <UserInfo>
+    <S.Container>
+      <S.UserInfo>
         <Image
           src={MaskGroup}
           width={54}
@@ -27,9 +27,9 @@ function CardChat({ chat }: CardChatProps) {
           </div>
         </div>
         <h3>{chat.createdAt}</h3>
-      </UserInfo>
-      <Message>{chat.message}</Message>
-    </Container>
+      </S.UserInfo>
+      <S.Message>{chat.message}</S.Message>
+    </S.Container>
   );
 }
 

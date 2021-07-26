@@ -1,7 +1,10 @@
 import { ReactElement } from 'react';
 import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as Yup from 'yup';
 
 import { Button, Input } from '../../components/';
+import { useAuth } from '../../hooks/auth';
 
 import * as S from './styles';
 
@@ -10,11 +13,22 @@ type DataType = {
   password: string;
 };
 
-function SignIn(): ReactElement {
-  const { register, handleSubmit } = useForm<DataType>();
+const schema = Yup.object({
+  email: Yup.string().email('Insira um e-mail válido.'),
+  password: Yup.string().required('Senha obrigatória.'),
+});
 
-  const onSubmit = (data: DataType) => {
-    console.log(data);
+function SignIn(): ReactElement {
+  const { register, handleSubmit } = useForm<DataType>({
+    resolver: yupResolver(schema),
+  });
+  const { signIn } = useAuth();
+  const onSubmit = async (data: DataType) => {
+    try {
+      await signIn(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -22,9 +36,15 @@ function SignIn(): ReactElement {
       <S.AuthBox>
         <S.Title>Logar</S.Title>
         <S.Form onSubmit={handleSubmit(onSubmit)}>
-          <Input {...register('email')} type="email" placeholder="E-mail" />
           <Input
-            {...register('password')}
+            register={register}
+            name="email"
+            type="email"
+            placeholder="E-mail"
+          />
+          <Input
+            register={register}
+            name="password"
             type="password"
             placeholder="Senha"
           />
