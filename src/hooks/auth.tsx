@@ -26,7 +26,7 @@ type SigninDataType = {
 interface AuthContextData {
   user: User;
   isAuthenticated: boolean;
-  signIn(signInData: SigninDataType): void;
+  signIn(signInData: SigninDataType): Promise<void>;
 }
 
 const AuthContext = createContext({} as AuthContextData);
@@ -46,18 +46,17 @@ export function AuthProvider({ children }: AuthProviderType): ReactElement {
     })();
   }, []);
 
-  function signIn(signInData: SigninDataType): void {
-    AuthService.signIn(api, signInData).then((response) => {
-      const userResponse = response.data.user;
-      const token = response.data.token;
-      setUser(userResponse);
-      setCookie(undefined, 'nextchat.token', token, {
-        maxAge: 60 * 60 * 1, // hour
-      });
-      api.defaults.headers.Authorization = `Bearer ${token}`;
-
-      Router.push('/home');
+  async function signIn(signInData: SigninDataType): Promise<void> {
+    const response = await AuthService.signIn(api, signInData);
+    const userResponse = response.data.user;
+    const token = response.data.token;
+    setUser(userResponse);
+    setCookie(undefined, 'nextchat.token', token, {
+      maxAge: 60 * 60 * 1, // hour
     });
+    api.defaults.headers.Authorization = `Bearer ${token}`;
+
+    Router.push('/home');
   }
 
   return (
