@@ -17,7 +17,7 @@ type SigninDataType = {
 
 interface AuthContextData {
   user: User;
-  signed: boolean;
+  isAuthenticated: boolean;
   signIn(signInData: SigninDataType): Promise<void>;
 }
 
@@ -34,7 +34,7 @@ export function AuthProvider({ children }: AuthProviderType): ReactElement {
   }
 
   return (
-    <AuthContext.Provider value={{ user, signIn, signed: !!user }}>
+    <AuthContext.Provider value={{ user, signIn, isAuthenticated: !!user }}>
       {children}
     </AuthContext.Provider>
   );

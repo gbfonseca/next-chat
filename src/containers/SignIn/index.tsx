@@ -3,10 +3,11 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 
-import { Button, Input } from '../../components/';
+import { Button, Input, Loading } from '../../components/';
 import { useAuth } from '../../hooks/auth';
 
 import * as S from './styles';
+import { useState } from 'react';
 
 type DataType = {
   email: string;
@@ -19,13 +20,17 @@ const schema = Yup.object({
 });
 
 function SignIn(): ReactElement {
+  const [loading, setLoading] = useState(false);
+
   const { register, handleSubmit } = useForm<DataType>({
     resolver: yupResolver(schema),
   });
   const { signIn } = useAuth();
   const onSubmit = async (data: DataType) => {
     try {
+      setLoading(true);
       await signIn(data);
+      setLoading(false);
     } catch (error) {
       console.log(error);
     }
@@ -48,17 +53,21 @@ function SignIn(): ReactElement {
             type="password"
             placeholder="Senha"
           />
-          <Button
-            style={{
-              width: '100%',
-              maxWidth: '100%',
-              marginTop: 20,
-              marginBottom: 20,
-            }}
-            type="submit"
-          >
-            Entrar
-          </Button>
+          {loading ? (
+            <Loading />
+          ) : (
+            <Button
+              style={{
+                width: '100%',
+                maxWidth: '100%',
+                marginTop: 20,
+                marginBottom: 20,
+              }}
+              type="submit"
+            >
+              Entrar
+            </Button>
+          )}
         </S.Form>
       </S.AuthBox>
     </S.Container>
