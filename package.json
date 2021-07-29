@@ -5,7 +5,13 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint-eslint": "eslint . --ext .ts,.tsx"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
   },
   "dependencies": {
     "@hookform/resolvers": "^2.6.1",
@@ -33,6 +39,7 @@
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-react": "^7.23.1",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "husky": "^7.0.1",
     "prettier": "^2.2.1",
     "typescript": "^4.3.5"
   },

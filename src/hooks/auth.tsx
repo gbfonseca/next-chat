@@ -29,6 +29,7 @@ export function AuthProvider({ children }: AuthProviderType): ReactElement {
     const response = await AuthService.signIn(signInData);
     const userResponse = response.data.user;
     const token = response.data.token;
+    console.log(token);
     setUser(userResponse);
   }
 
