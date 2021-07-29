@@ -1,10 +1,12 @@
 import { AiOutlinePlus } from 'react-icons/ai';
 import { BiSearch, BiChevronDown } from 'react-icons/bi';
+
+import { Container, Content, Header, SearchContainer } from './styles';
+
 import Button from '../../components/Button';
 import CardChat from '../../components/CardChat';
 import Navbar from '../../components/Navbar';
 import { chatData } from '../../utils/chatExample';
-import { Container, Content, Header, SearchContainer } from './styles';
 
 function Homepage() {
   return (

@@ -1,15 +1,14 @@
-import Image from 'next/image';
 import { useState } from 'react';
+
+import Image from 'next/image';
 import {
   AiOutlineFile,
   AiOutlinePaperClip,
   AiOutlinePlus,
 } from 'react-icons/ai';
+import { BiImage, BiMovie } from 'react-icons/bi';
 import { BsThreeDotsVertical } from 'react-icons/bs';
 import { IoIosSend } from 'react-icons/io';
-import { BiImage, BiMovie } from 'react-icons/bi';
-import { MaskGroup } from '../../assets/images';
-import Navbar from '../../components/Navbar';
 
 import {
   Container,
@@ -23,6 +22,9 @@ import {
   Message,
   IconGroup,
 } from './styles';
+
+import { MaskGroup } from '../../assets/images';
+import Navbar from '../../components/Navbar';
 
 function Chats() {
   const [showIcons, setShowIcons] = useState(false);

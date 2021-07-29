@@ -1,6 +1,6 @@
-import { AxiosPromise } from 'axios';
+import { AxiosInstance, AxiosPromise } from 'axios';
+
 import User from '../models/user';
-import api from './api';
 
 type SigninDataType = {
   email: string;
@@ -13,7 +13,14 @@ type SignInReponse = {
 };
 
 export const AuthService = {
-  signIn(signInData: SigninDataType): AxiosPromise<SignInReponse> {
+  signIn(
+    api: AxiosInstance,
+    signInData: SigninDataType,
+  ): AxiosPromise<SignInReponse> {
     return api.post('/auth/signin', signInData);
+  },
+
+  getLoggedUser(api: AxiosInstance): AxiosPromise<User> {
+    return api.get('/auth/logged-user');
   },
 };

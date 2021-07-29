@@ -1,9 +1,8 @@
 import Image from 'next/image';
-import { useRouter } from 'next/router';
-
 import Link from 'next/link';
-import { MaskGroup } from '../../assets/images';
-
+import { useRouter } from 'next/router';
+import { AiOutlineCalendar } from 'react-icons/ai';
+import { BiChevronDown } from 'react-icons/bi';
 import {
   BsFillChatDotsFill,
   BsGrid,
@@ -11,15 +10,17 @@ import {
   BsBell,
   BsPower,
 } from 'react-icons/bs';
-import { AiOutlineCalendar } from 'react-icons/ai';
 import { FiSettings } from 'react-icons/fi';
 
 import { Container, Menu, User, Item } from './styles';
-import { BiChevronDown } from 'react-icons/bi';
+
+import { MaskGroup } from '../../assets/images';
+import { useAuth } from '../../hooks/auth';
 
 function Navbar() {
   const router = useRouter();
   const route = router.route;
+  const { user } = useAuth();
 
   return (
     <Container>
@@ -32,7 +33,7 @@ function Navbar() {
           layout="intrinsic"
         />
         <h2>
-          Neymar Júnior <BiChevronDown size={24} />
+          {user.name} <BiChevronDown size={24} />
         </h2>
       </User>
       <Menu>

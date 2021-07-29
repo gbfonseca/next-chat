@@ -1,6 +1,8 @@
-import { MaskGroup } from '../../assets/images';
-import * as S from './styles';
 import Image from 'next/image';
+
+import * as S from './styles';
+
+import { MaskGroup } from '../../assets/images';
 interface CardChatProps {
   chat: {
     name: string;

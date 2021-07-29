@@ -1,8 +1,10 @@
 import { AppProps } from 'next/app';
 import { ThemeProvider } from 'styled-components';
-import { AuthProvider } from '../hooks/auth';
+
 import { GlobalStyles } from '../styles/global-styles';
 import { theme } from '../styles/theme';
+
+import { AuthProvider } from '../hooks/auth';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

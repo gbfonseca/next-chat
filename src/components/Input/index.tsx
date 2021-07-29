@@ -1,4 +1,5 @@
 import { InputHTMLAttributes } from 'react';
+
 import { UseFormRegister } from 'react-hook-form';
 
 import * as S from './styles';

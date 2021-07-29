@@ -1,5 +1,7 @@
 import { ReactElement } from 'react';
+
 import Lottie from 'react-lottie';
+
 import { PaperPlane } from '../../assets/loading';
 
 function Loading(): ReactElement {

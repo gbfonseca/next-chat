@@ -1,13 +1,14 @@
 import { ReactElement } from 'react';
-import { useForm } from 'react-hook-form';
+import { useState } from 'react';
+
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useForm } from 'react-hook-form';
 import * as Yup from 'yup';
+
+import * as S from './styles';
 
 import { Button, Input, Loading } from '../../components/';
 import { useAuth } from '../../hooks/auth';
-
-import * as S from './styles';
-import { useState } from 'react';
 
 type DataType = {
   email: string;
